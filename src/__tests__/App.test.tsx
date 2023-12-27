@@ -1,7 +1,8 @@
+import { screen } from '@testing-library/react-native';
+import RootNavigator from 'src/navigators/RootNavigator';
 import render from 'src/test/render';
-import App from '../../App';
 
-test('renders', () => {
-  expect(true).toBe(true);
-  expect(() => render(<App />)).not.toThrow();
+test('renders', async () => {
+  render(<RootNavigator />);
+  expect(await screen.findByText(/Open up App.tsx/)).toBeDefined();
 });
